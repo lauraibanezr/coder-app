@@ -4,7 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 export default function CartWidget() {
   return (
     <div>
-        <FaShoppingCart />
+        <FaShoppingCart color='green'/>
     </div>
   )
 }

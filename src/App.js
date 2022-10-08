@@ -1,17 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import './assets/main.css';
-import Card from './components/Card/Card';
+
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
+
+
+
+
   return (
     <div className="App">
-      <NavBar />
-      <ItemListContainer gretting="Ultimas novedades"/>
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element={<ItemListContainer gretting="Ultimas novedades"/> }/>
+          <Route path='/elemento/:itemID' element={<ItemDetailContainer />}></Route>
+        </Routes>
+        </BrowserRouter>
     </div>
-  );
+  ); 
 }
 
 export default App;
