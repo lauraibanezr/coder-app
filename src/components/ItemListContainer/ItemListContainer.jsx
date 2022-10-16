@@ -1,32 +1,33 @@
-import React from 'react'
-import Card from '../Card/Card'
-import "./ItemListContainer.css";
+import React from 'react';
 import {useState, useEffect} from "react";
-
+import { useParams } from 'react-router-dom';
 import {getData} from '../../mockApi/mockAPI';
+import ItemList from '../ItemList/ItemList';
 
 export function ItemListContainer(props) {
 
   const[list, setList]= useState([]);
 
+  const{categoriaId} = useParams()
+  console.log(categoriaId)
 
   useEffect(()=>{
-    getData().then( (data) => setList(data))
-  })
+    getData().then( (data) => {
+      if(categoriaId){
+        setList(data.filter((item)=>item.category.toLowerCase() === categoriaId))
+      }else{
+      setList(data)
+      }
+    })
+  },[categoriaId])
   
  
 
 
   return (
     <div>
-        <h1>{props.gretting}</h1>
-        <div className='containere'>
-          {list.map(listado=>{
-            return(
-              <Card key={listado.id} ima={listado.image} title={listado.title} detail={listado.description} price={listado.price}  id={listado.id}/> 
-            )
-          })}
-          </div >
+      <h1>{props.gretting}</h1>
+      <ItemList list={list}/>
     </div>
   )
 }
