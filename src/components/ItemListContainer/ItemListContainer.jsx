@@ -1,10 +1,15 @@
 import React from 'react';
 import {useState, useEffect} from "react";
 import { useParams } from 'react-router-dom';
-import {getData} from '../../mockApi/mockAPI';
+//import {getData} from '../../mockApi/mockAPI';
 import ItemList from '../ItemList/ItemList';
 
+//import { getData as getElemento } from '../../services/firebase';
+import { getData } from '../../services/firebase';
+
 export function ItemListContainer(props) {
+
+
 
   const[list, setList]= useState([]);
 

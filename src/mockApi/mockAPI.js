@@ -133,7 +133,12 @@ const data = [{
         let result = data.find((item) => {
             return item.id === Number(idParams);
           });
-            setTimeout(()=> resolve(result),1500);
-        }
-    )
+            setTimeout(()=>{
+              if(result === undefined)
+                reject (new Error('No se encontró el elemento'));
+              else{
+              resolve(result);
+              }
+        },1500);
+      });
   }
