@@ -10,7 +10,7 @@ function ItemDetailContainer(props){
 
     const { itemID } = useParams();
 
-    console.log(useParams());
+   // console.log(useParams());
 
     
     useEffect(() => {
