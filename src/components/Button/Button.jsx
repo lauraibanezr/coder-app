@@ -14,7 +14,7 @@ function Button(props){
 */
     function hancleClick(){
         console.log("ok");
-        props.onClick();
+       // props.onClick();
         setColorBtn({ backgroundColor: "blue"});
     };
 

@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 
+import { useContext } from 'react';
+import { cartContext } from '../../context/cartContext';
+
 function ItemDetail({ elemento }) {
 
     const divStyles = {
@@ -13,9 +16,11 @@ function ItemDetail({ elemento }) {
       };
 
     const [count,setCount] = useState(0);
+    
+    const {addToCart} = useContext (cartContext);
 
     function handleAddToCart(count){
-      console.log('Agregado', count);
+      addToCart(elemento,count);
       setCount(count);
     }
 
